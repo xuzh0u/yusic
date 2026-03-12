@@ -1,0 +1,182 @@
+.music-player {
+  background: white;
+  border-radius: 16px;
+  padding: 40px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  margin-bottom: 30px;
+}
+
+/* 可视化波形 */
+.player-visualizer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 120px;
+  margin-bottom: 30px;
+}
+
+.wave {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  height: 80px;
+}
+
+.wave-bar {
+  width: 6px;
+  height: 20px;
+  background: linear-gradient(180deg, #667eea 0%, #764ba2 100%);
+  border-radius: 3px;
+  transition: height 0.3s ease;
+}
+
+.wave.playing .wave-bar {
+  animation: wave-animation 1s ease-in-out infinite;
+}
+
+.wave.playing .wave-bar:nth-child(1) {
+  animation-delay: 0s;
+}
+
+.wave.playing .wave-bar:nth-child(2) {
+  animation-delay: 0.1s;
+}
+
+.wave.playing .wave-bar:nth-child(3) {
+  animation-delay: 0.2s;
+}
+
+.wave.playing .wave-bar:nth-child(4) {
+  animation-delay: 0.3s;
+}
+
+.wave.playing .wave-bar:nth-child(5) {
+  animation-delay: 0.4s;
+}
+
+@keyframes wave-animation {
+  0%, 100% {
+    height: 20px;
+  }
+  50% {
+    height: 60px;
+  }
+}
+
+/* 播放控制 */
+.player-controls {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.player-controls button {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 16px 40px;
+  border-radius: 50px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.btn-play {
+  background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+  color: white;
+}
+
+.btn-play:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(16, 185, 129, 0.4);
+}
+
+.btn-play:disabled {
+  background: #ccc;
+  cursor: not-allowed;
+  box-shadow: none;
+}
+
+.btn-stop {
+  background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%);
+  color: white;
+}
+
+.btn-stop:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(239, 68, 68, 0.4);
+}
+
+.btn-icon {
+  font-size: 1.3rem;
+}
+
+.btn-text {
+  font-size: 1rem;
+}
+
+/* 播放状态 */
+.player-info {
+  text-align: center;
+  margin-bottom: 25px;
+}
+
+.player-info p {
+  font-size: 0.95rem;
+  color: #666;
+}
+
+.status-playing {
+  color: #10b981;
+  font-weight: 500;
+}
+
+.status-idle {
+  color: #999;
+}
+
+/* 乐器展示 */
+.player-features {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  padding-top: 20px;
+  border-top: 1px solid #e9ecef;
+}
+
+.feature-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.85rem;
+  color: #666;
+}
+
+.feature-icon {
+  font-size: 1.8rem;
+}
+
+@media (max-width: 640px) {
+  .music-player {
+    padding: 25px;
+  }
+
+  .player-controls button {
+    padding: 14px 30px;
+    font-size: 1rem;
+  }
+
+  .player-features {
+    gap: 15px;
+  }
+
+  .feature-item {
+    font-size: 0.75rem;
+  }
+
+  .feature-icon {
+    font-size: 1.5rem;
+  }
+}
